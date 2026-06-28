@@ -11,7 +11,7 @@ const Coursework = () => {
   ];
 
   return (
-    <section id="coursework" className="py-16 bg-muted/30" aria-labelledby="coursework-heading">
+    <section id="coursework" className="py-16 md:py-24 bg-[#08080e]" aria-labelledby="coursework-heading">
       <div className="section-container">
         <h2 id="coursework-heading" className="section-title">Coursework</h2>
 

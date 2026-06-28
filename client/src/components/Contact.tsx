@@ -41,57 +41,57 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 bg-muted/30" aria-labelledby="contact-heading">
+    <section id="contact" className="py-16 md:py-24 bg-[#0a0a0f]" aria-labelledby="contact-heading">
       <div className="section-container">
         <h2 id="contact-heading" className="section-title">Get In Touch</h2>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="space-y-8 animate-fadeIn">
-            <p className="text-lg">
+            <p className="text-lg text-white/70">
               I&apos;m always open to internships, collaborations, and opportunities in VLSI and digital design.
               Whether you have a question or just want to say hi, I&apos;ll try my best to get back to you!
             </p>
             
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <div className="bg-primary/10 p-3 rounded-full">
-                  <Mail className="h-6 w-6 text-primary" aria-hidden="true" />
+                <div className="bg-[#00d4ff]/10 p-3 rounded-full">
+                  <Mail className="h-6 w-6 text-[#00d4ff]" aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Email</p>
-                  <a href="mailto:asimdy01@gmail.com" className="font-medium hover:text-primary">
+                  <p className="text-sm text-white/40">Email</p>
+                  <a href="mailto:asimdy01@gmail.com" className="font-medium text-white hover:text-[#00d4ff]">
                     asimdy01@gmail.com
                   </a>
                 </div>
               </div>
               
               <div className="flex items-center gap-4">
-                <div className="bg-primary/10 p-3 rounded-full">
-                  <Phone className="h-6 w-6 text-primary" aria-hidden="true" />
+                <div className="bg-[#ff6b35]/10 p-3 rounded-full">
+                  <Phone className="h-6 w-6 text-[#ff6b35]" aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Phone</p>
-                  <a href="tel:+919827679453" className="font-medium hover:text-primary">
+                  <p className="text-sm text-white/40">Phone</p>
+                  <a href="tel:+919827679453" className="font-medium text-white hover:text-[#ff6b35]">
                     +91 9827679453
                   </a>
                 </div>
               </div>
               
               <div className="flex items-center gap-4">
-                <div className="bg-primary/10 p-3 rounded-full">
-                  <MapPin className="h-6 w-6 text-primary" aria-hidden="true" />
+                <div className="bg-[#ffd600]/10 p-3 rounded-full">
+                  <MapPin className="h-6 w-6 text-[#ffd600]" aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Location</p>
-                  <p className="font-medium">Bhubaneswar, Odisha, India</p>
+                  <p className="text-sm text-white/40">Location</p>
+                  <p className="font-medium text-white">Bhubaneswar, Odisha, India</p>
                 </div>
               </div>
             </div>
             
             <div className="pt-4">
-              <h3 className="text-lg font-semibold mb-4">Connect with me</h3>
+              <h3 className="text-lg font-semibold mb-4 text-white">Connect with me</h3>
               <div className="flex gap-4">
-                <Button asChild variant="outline" size="lg">
+                <Button asChild variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
                   <a
                     href="https://github.com/arghodey-01"
                     target="_blank"
@@ -102,7 +102,7 @@ const Contact = () => {
                     GitHub
                   </a>
                 </Button>
-                <Button asChild variant="outline" size="lg">
+                <Button asChild variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
                   <a
                     href="https://www.linkedin.com/in/asim-dey-ba1899394/"
                     target="_blank"
@@ -118,7 +118,7 @@ const Contact = () => {
           </div>
           
           <div className="animate-fadeIn delay-200">
-            <form onSubmit={handleSubmit} className="space-y-6 bg-card p-6 rounded-lg shadow-sm border" aria-label="Contact form">
+            <form onSubmit={handleSubmit} className="space-y-6 rounded-xl border border-white/10 bg-[#12121a] p-6 shadow-sm animate-fadeIn delay-200" aria-label="Contact form">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium">Your Name</label>
                 <Input 
@@ -168,7 +168,7 @@ const Contact = () => {
                 />
               </div>
               
-              <Button type="submit" className="w-full" disabled={isSubmitting}>
+              <Button type="submit" className="w-full bg-[#ffd600] text-[#0a0a0f] hover:bg-[#ffd600]/90" disabled={isSubmitting}>
                 {isSubmitting ? (
                   <>
                     <svg className="animate-spin -ml-1 mr-3 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">

@@ -76,11 +76,11 @@
 
   body {
     @apply bg-background text-foreground font-sans transition-colors duration-300;
-    font-family: 'Inter', sans-serif;
+    font-family: 'DM Sans', 'Inter', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Space Grotesk', 'Poppins', sans-serif;
   }
 
   html {
@@ -96,13 +96,30 @@
   .section-title {
     @apply text-3xl md:text-4xl font-bold mb-6 md:mb-10 text-secondary relative;
   }
+
+  .portfolio-site .section-title {
+    @apply font-display uppercase tracking-[0.12em] text-white mb-8 md:mb-12;
+  }
+
+  .portfolio-site .section-title::after {
+    content: '';
+    @apply block w-12 h-1 bg-[#ffd600] mt-3;
+  }
   
   .project-card {
     @apply border border-border rounded-lg overflow-hidden bg-card transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
   }
+
+  .portfolio-site .project-card {
+    @apply border-white/10 bg-[#12121a] hover:border-[#00d4ff]/30 hover:shadow-[0_8px_30px_rgba(0,212,255,0.08)];
+  }
   
   .skill-badge {
     @apply px-3 py-1 rounded-full text-sm bg-muted text-foreground whitespace-nowrap transition-all duration-200 hover:bg-primary hover:text-primary-foreground;
+  }
+
+  .portfolio-site .skill-badge {
+    @apply bg-white/5 text-white/80 border border-white/10 hover:bg-[#00d4ff]/15 hover:text-[#00d4ff] hover:border-[#00d4ff]/30;
   }
   
   .timeline-item {
@@ -123,6 +140,14 @@
 
   .gradient-text {
     @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .portfolio-watermark {
+    text-shadow: 0 0 80px rgba(0, 212, 255, 0.05);
   }
 }
 

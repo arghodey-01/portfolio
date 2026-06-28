@@ -30,7 +30,7 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-16 bg-muted/30" aria-labelledby="education-heading">
+    <section id="education" className="py-16 md:py-24 bg-[#0a0a0f]" aria-labelledby="education-heading">
       <div className="section-container">
         <h2 id="education-heading" className="section-title">Education</h2>
 
@@ -38,19 +38,19 @@ const Education = () => {
           {education.map((item, index) => (
             <div
               key={`${item.institution}-${item.degree}`}
-              className="flex items-start gap-4 bg-card rounded-lg p-6 shadow-sm border animate-fadeIn"
+              className="flex items-start gap-4 rounded-xl border border-white/10 bg-[#12121a] p-6 animate-fadeIn hover:border-[#00d4ff]/20 transition-colors"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="mt-1 bg-primary/10 rounded-full p-2 shrink-0">
-                <item.icon size={20} className="text-primary" aria-hidden="true" />
+              <div className="mt-1 rounded-full bg-[#00d4ff]/10 p-2 shrink-0">
+                <item.icon size={20} className="text-[#00d4ff]" aria-hidden="true" />
               </div>
               <div>
-                <h3 className="font-bold text-lg">{item.institution}</h3>
-                <p className="text-muted-foreground">{item.degree}</p>
+                <h3 className="font-bold text-lg text-white">{item.institution}</h3>
+                <p className="text-white/60">{item.degree}</p>
                 {item.field && (
-                  <p className="text-sm text-muted-foreground">{item.field}</p>
+                  <p className="text-sm text-white/50">{item.field}</p>
                 )}
-                <p className="text-sm text-muted-foreground mt-1">
+                <p className="text-sm text-white/40 mt-1">
                   {item.period} • {item.detail}
                 </p>
               </div>

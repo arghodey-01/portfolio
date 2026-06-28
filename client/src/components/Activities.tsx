@@ -33,7 +33,7 @@ const Activities = () => {
   ];
 
   return (
-    <section id="activities" className="py-16" aria-labelledby="activities-heading">
+    <section id="activities" className="py-16 md:py-24 bg-[#08080e]" aria-labelledby="activities-heading">
       <div className="section-container">
         <h2 id="activities-heading" className="section-title">Extracurricular Activities</h2>
 
@@ -45,31 +45,31 @@ const Activities = () => {
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="lg:col-span-3 space-y-1">
-                <h3 className="font-semibold text-lg">{activity.title}</h3>
-                <p className="font-medium text-primary">{activity.organization}</p>
-                <p className="text-sm text-muted-foreground">{activity.institution}</p>
+                <h3 className="font-semibold text-lg text-white">{activity.title}</h3>
+                <p className="font-medium text-[#00d4ff]">{activity.organization}</p>
+                <p className="text-sm text-white/50">{activity.institution}</p>
 
-                <div className="flex items-center text-sm text-muted-foreground gap-1">
+                <div className="flex items-center text-sm text-white/40 gap-1">
                   <CalendarIcon className="h-4 w-4" aria-hidden="true" />
                   <span>{activity.period}</span>
                 </div>
 
-                <div className="flex items-center text-sm text-muted-foreground gap-1">
+                <div className="flex items-center text-sm text-white/40 gap-1">
                   <MapPin className="h-4 w-4" aria-hidden="true" />
                   <span>{activity.location}</span>
                 </div>
               </div>
 
               <div className="lg:col-span-9">
-                <ul className="space-y-3 list-disc pl-5">
+                <ul className="space-y-3 list-disc pl-5 text-white/70">
                   {activity.description.map((point, i) => (
-                    <li key={i} className="text-foreground">{point}</li>
+                    <li key={i}>{point}</li>
                   ))}
                 </ul>
 
                 <div className="flex flex-wrap gap-2 mt-4">
                   {activity.tags.map((tag) => (
-                    <Badge key={tag} variant="outline">{tag}</Badge>
+                    <Badge key={tag} variant="outline" className="border-white/20 text-white/70">{tag}</Badge>
                   ))}
                 </div>
               </div>

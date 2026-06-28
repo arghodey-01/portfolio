@@ -25,7 +25,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-16" aria-labelledby="projects-heading">
+    <section id="projects" className="py-16 md:py-24 bg-[#0a0a0f]" aria-labelledby="projects-heading">
       <div className="section-container">
         <h2 id="projects-heading" className="section-title">Projects</h2>
         
@@ -37,18 +37,18 @@ const Projects = () => {
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="p-6 space-y-4">
-                <h3 className="text-xl font-bold">{project.title}</h3>
+                <h3 className="text-xl font-bold text-white">{project.title}</h3>
                 
-                <div className="flex items-center text-sm text-muted-foreground gap-1">
+                <div className="flex items-center text-sm text-white/40 gap-1">
                   <Calendar className="h-4 w-4" aria-hidden="true" />
                   <time dateTime={project.period}>{project.period}</time>
                 </div>
                 
-                <p className="text-muted-foreground">{project.description}</p>
+                <p className="text-white/60">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 pt-2">
                   {project.technologies.map(tech => (
-                    <Badge key={tech} variant="secondary">{tech}</Badge>
+                    <Badge key={tech} variant="secondary" className="bg-white/5 text-white/70 border border-white/10">{tech}</Badge>
                   ))}
                 </div>
               </div>

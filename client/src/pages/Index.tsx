@@ -8,26 +8,20 @@ import Coursework from '@/components/Coursework';
 import Activities from '@/components/Activities';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import InteractiveBackground from '@/components/InteractiveBackground';
-import CursorFollower from '@/components/CursorFollower';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background relative">
-      <InteractiveBackground />
-      <CursorFollower />
-      <div className="relative z-10">
-        <Navbar />
-        <Hero />
-        <About />
-        <Education />
-        <Skills />
-        <Projects />
-        <Coursework />
-        <Activities />
-        <Contact />
-        <Footer />
-      </div>
+    <div className="portfolio-site min-h-screen bg-[#0a0a0f] text-white">
+      <Navbar />
+      <Hero />
+      <About />
+      <Education />
+      <Skills />
+      <Projects />
+      <Coursework />
+      <Activities />
+      <Contact />
+      <Footer />
     </div>
   );
 };
