@@ -6,7 +6,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useEffect, useState } from "react";
 
 const Hero = () => {
@@ -37,13 +37,13 @@ const Hero = () => {
   const socialLinks = [
     {
       name: "GitHub",
-      href: "#",
+      href: "https://github.com/arghodey-01",
       icon: Github,
       color: "hover:text-gray-900 dark:hover:text-gray-100",
     },
     {
       name: "LinkedIn",
-      href: "#",
+      href: "https://www.linkedin.com/in/asim-dey-ba1899394/",
       icon: Linkedin,
       color: "hover:text-blue-600",
     },
@@ -162,8 +162,8 @@ const Hero = () => {
                 <a
                   key={social.name}
                   href={social.href}
-                  target={social.href !== "#" ? "_blank" : undefined}
-                  rel={social.href !== "#" ? "noopener noreferrer" : undefined}
+                  target={social.href.startsWith("http") ? "_blank" : undefined}
+                  rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className={`p-2 rounded-full bg-muted hover:bg-primary/10 transition-all duration-200 hover:scale-110 ${social.color}`}
                   aria-label={social.name}
                 >
@@ -180,9 +180,13 @@ const Hero = () => {
               <div className="bg-gradient-to-br from-card via-card/90 to-card/70 backdrop-blur-sm border border-border/50 rounded-2xl p-6 shadow-xl">
                 <div className="w-40 h-40 mx-auto mb-4">
                   <Avatar className="w-full h-full border-4 border-white/20 shadow-lg">
+                    <AvatarImage
+                      src="/profile.jpeg"
+                      alt="Asim Dey"
+                      className="object-cover"
+                    />
                     <AvatarFallback
                       className="text-4xl font-bold bg-gradient-to-br from-primary/20 to-secondary/20 text-primary"
-                      aria-label="Asim Dey profile photo placeholder"
                     >
                       AD
                     </AvatarFallback>

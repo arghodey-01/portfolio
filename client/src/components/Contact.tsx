@@ -93,8 +93,10 @@ const Contact = () => {
               <div className="flex gap-4">
                 <Button asChild variant="outline" size="lg">
                   <a
-                    href="#"
-                    aria-label="GitHub profile (link coming soon)"
+                    href="https://github.com/arghodey-01"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub profile"
                   >
                     <Github className="mr-2 h-5 w-5" />
                     GitHub
@@ -102,8 +104,10 @@ const Contact = () => {
                 </Button>
                 <Button asChild variant="outline" size="lg">
                   <a
-                    href="#"
-                    aria-label="LinkedIn profile (link coming soon)"
+                    href="https://www.linkedin.com/in/asim-dey-ba1899394/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn profile"
                   >
                     <Linkedin className="mr-2 h-5 w-5" />
                     LinkedIn

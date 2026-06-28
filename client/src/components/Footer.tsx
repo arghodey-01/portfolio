@@ -56,16 +56,20 @@ const Footer = () => {
           <p className="text-sm opacity-80">© {year} Asim Dey. All rights reserved.</p>
           <div className="flex mt-2 md:mt-0 space-x-4">
             <a
-              href="#"
+              href="https://github.com/arghodey-01"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-secondary-foreground hover:text-primary transition-colors"
-              aria-label="GitHub profile (link coming soon)"
+              aria-label="GitHub profile"
             >
               GitHub
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/asim-dey-ba1899394/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-secondary-foreground hover:text-primary transition-colors"
-              aria-label="LinkedIn profile (link coming soon)"
+              aria-label="LinkedIn profile"
             >
               LinkedIn
             </a>
