@@ -11,23 +11,35 @@ const Footer = () => {
 
   const year = new Date().getFullYear();
 
+  const footerLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Education', href: '#education' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Coursework', href: '#coursework' },
+    { name: 'Activities', href: '#activities' },
+    { name: 'Contact', href: '#contact' },
+  ];
+
   return (
     <footer className="bg-secondary text-secondary-foreground py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <p className="text-lg font-bold">Animesh Kumar Biswas</p>
-            <p className="text-sm opacity-80">Machine Learning Researcher & Software Developer</p>
+            <p className="text-lg font-bold">Asim Dey</p>
+            <p className="text-sm opacity-80">Electronics &amp; Communication Engineering Student</p>
           </div>
           
           <div className="text-center mb-4 md:mb-0">
-            <ul className="flex space-x-6">
-              <li><a href="#home" className="hover:text-primary transition-colors text-sm">Home</a></li>
-              <li><a href="#about" className="hover:text-primary transition-colors text-sm">About</a></li>
-              <li><a href="#skills" className="hover:text-primary transition-colors text-sm">Skills</a></li>
-              <li><a href="#experience" className="hover:text-primary transition-colors text-sm">Experience</a></li>
-              <li><a href="#projects" className="hover:text-primary transition-colors text-sm">Projects</a></li>
-              <li><a href="#contact" className="hover:text-primary transition-colors text-sm">Contact</a></li>
+            <ul className="flex flex-wrap justify-center gap-x-4 gap-y-2">
+              {footerLinks.map((link) => (
+                <li key={link.name}>
+                  <a href={link.href} className="hover:text-primary transition-colors text-sm">
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
           
@@ -41,26 +53,24 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-secondary-foreground/20 mt-6 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm opacity-80">© {year} Animesh Kumar Biswas. All rights reserved.</p>
+          <p className="text-sm opacity-80">© {year} Asim Dey. All rights reserved.</p>
           <div className="flex mt-2 md:mt-0 space-x-4">
             <a
-              href="https://github.com/Animeshkbiswas"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
               className="text-secondary-foreground hover:text-primary transition-colors"
+              aria-label="GitHub profile (link coming soon)"
             >
               GitHub
             </a>
             <a
-              href="https://www.linkedin.com/in/animesh-kumar-biswas-584085280/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#"
               className="text-secondary-foreground hover:text-primary transition-colors"
+              aria-label="LinkedIn profile (link coming soon)"
             >
               LinkedIn
             </a>
             <a
-              href="mailto:animeshkbiswas15122004@gmail.com"
+              href="mailto:asimdy01@gmail.com"
               className="text-secondary-foreground hover:text-primary transition-colors"
             >
               Email

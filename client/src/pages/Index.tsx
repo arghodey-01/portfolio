@@ -1,9 +1,11 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
+import Education from '@/components/Education';
 import Skills from '@/components/Skills';
-import Experience from '@/components/Experience';
 import Projects from '@/components/Projects';
+import Coursework from '@/components/Coursework';
+import Activities from '@/components/Activities';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import InteractiveBackground from '@/components/InteractiveBackground';
@@ -18,9 +20,11 @@ const Index = () => {
         <Navbar />
         <Hero />
         <About />
+        <Education />
         <Skills />
-        <Experience />
         <Projects />
+        <Coursework />
+        <Activities />
         <Contact />
         <Footer />
       </div>

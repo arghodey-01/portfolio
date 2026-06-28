@@ -1,5 +1,4 @@
 import {
-  ArrowDown,
   Github,
   Linkedin,
   Mail,
@@ -7,15 +6,16 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import Hero3D from "./Hero3D";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useEffect, useState } from "react";
 
 const Hero = () => {
   const [currentRole, setCurrentRole] = useState(0);
   const roles = [
-    "Machine Learning Research Intern",
-    "Software Developer",
-    "AI Enthusiast",
+    "VLSI Design",
+    "Digital Design",
+    "FPGA Development",
+    "ASIC Engineering",
   ];
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const Hero = () => {
   const handleDownloadResume = () => {
     const link = document.createElement("a");
     link.href = "/resume.pdf";
-    link.download = "Animesh_Kumar_Biswas_Resume.pdf";
+    link.download = "Asim_Dey_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -37,19 +37,19 @@ const Hero = () => {
   const socialLinks = [
     {
       name: "GitHub",
-      href: "https://github.com/Animeshkbiswas",
+      href: "#",
       icon: Github,
       color: "hover:text-gray-900 dark:hover:text-gray-100",
     },
     {
       name: "LinkedIn",
-      href: "https://www.linkedin.com/in/animesh-kumar-biswas-584085280/",
+      href: "#",
       icon: Linkedin,
       color: "hover:text-blue-600",
     },
     {
       name: "Email",
-      href: "mailto:animeshkbiswas15122004@gmail.com",
+      href: "mailto:asimdy01@gmail.com",
       icon: Mail,
       color: "hover:text-red-500",
     },
@@ -59,6 +59,7 @@ const Hero = () => {
     <section
       id="home"
       className="min-h-screen flex items-center justify-center pt-16 pb-20 relative overflow-hidden"
+      aria-labelledby="hero-heading"
     >
       {/* Enhanced Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5"></div>
@@ -77,33 +78,47 @@ const Hero = () => {
               <p className="text-primary font-medium text-lg animate-fadeIn">
                 👋 Hi, my name is
               </p>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground font-heading animate-fadeIn delay-100">
-                <span className="gradient-text">Animesh Kumar</span>
-                <br />
-                <span className="text-secondary">Biswas</span>
+              <h1
+                id="hero-heading"
+                className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground font-heading animate-fadeIn delay-100"
+              >
+                <span className="gradient-text">Asim</span>{" "}
+                <span className="text-secondary">Dey</span>
               </h1>
+              <p className="text-lg sm:text-xl font-medium text-primary animate-fadeIn delay-150">
+                Electronics &amp; Communication Engineering Student
+              </p>
               <div className="h-16">
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-muted-foreground animate-fadeIn delay-200">
+                  Aspiring{" "}
                   <span className="inline-block min-w-0">
                     {roles[currentRole]}
                   </span>
-                  <span className="animate-pulse">|</span>
+                  <span className="animate-pulse" aria-hidden="true">|</span>
                 </h2>
               </div>
             </div>
 
             <div className="space-y-4">
               <p className="text-xl max-w-2xl text-muted-foreground leading-relaxed animate-fadeIn delay-300">
-                Specialized in{" "}
+                Passionate Electronics and Communication Engineering student with a strong interest in{" "}
                 <span className="text-primary font-semibold bg-primary/10 px-2 py-1 rounded-md mx-1">
-                  machine learning
+                  VLSI Design
                 </span>
                 ,{" "}
                 <span className="text-primary font-semibold bg-primary/10 px-2 py-1 rounded-md mx-1">
-                  computer vision
+                  Digital IC Design
                 </span>
-                . Currently working on time series classification and deep
-                learning projects at NIT Rourkela.
+                ,{" "}
+                <span className="text-primary font-semibold bg-primary/10 px-2 py-1 rounded-md mx-1">
+                  ASICs
+                </span>
+                ,{" "}
+                <span className="text-primary font-semibold bg-primary/10 px-2 py-1 rounded-md mx-1">
+                  FPGA Development
+                </span>
+                , and Semiconductor Technology. I enjoy building digital systems, designing logic circuits,
+                and continuously learning modern hardware technologies.
               </p>
             </div>
 
@@ -147,8 +162,8 @@ const Hero = () => {
                 <a
                   key={social.name}
                   href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={social.href !== "#" ? "_blank" : undefined}
+                  rel={social.href !== "#" ? "noopener noreferrer" : undefined}
                   className={`p-2 rounded-full bg-muted hover:bg-primary/10 transition-all duration-200 hover:scale-110 ${social.color}`}
                   aria-label={social.name}
                 >
@@ -163,24 +178,27 @@ const Hero = () => {
             <div className="relative w-full max-w-lg">
               {/* Profile Card */}
               <div className="bg-gradient-to-br from-card via-card/90 to-card/70 backdrop-blur-sm border border-border/50 rounded-2xl p-6 shadow-xl">
-                <div className="w-40 h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white/20 shadow-lg">
-                  <img
-                    src="/profile.png"
-                    alt="Animesh Kumar Biswas"
-                    className="w-full h-full object-cover"
-                  />
+                <div className="w-40 h-40 mx-auto mb-4">
+                  <Avatar className="w-full h-full border-4 border-white/20 shadow-lg">
+                    <AvatarFallback
+                      className="text-4xl font-bold bg-gradient-to-br from-primary/20 to-secondary/20 text-primary"
+                      aria-label="Asim Dey profile photo placeholder"
+                    >
+                      AD
+                    </AvatarFallback>
+                  </Avatar>
                 </div>
 
                 {/* Quick Stats */}
                 <div className="grid grid-cols-2 gap-3 mb-6">
                   <div className="text-center p-3 bg-primary/5 rounded-lg border border-primary/20">
-                    <div className="text-xl font-bold text-primary">15+</div>
+                    <div className="text-xl font-bold text-primary">3</div>
                     <div className="text-xs text-muted-foreground">Projects</div>
                   </div>
                   <div className="text-center p-3 bg-secondary/5 rounded-lg border border-secondary/20">
-                    <div className="text-xl font-bold text-secondary">3+</div>
+                    <div className="text-xl font-bold text-secondary">8.59</div>
                     <div className="text-xs text-muted-foreground">
-                      Years Coding
+                      CGPA
                     </div>
                   </div>
                 </div>
@@ -194,7 +212,7 @@ const Hero = () => {
                     </span>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Open to new opportunities and collaborations
+                    Open to internships in VLSI &amp; Digital Design
                   </p>
                 </div>
               </div>
@@ -207,24 +225,24 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Achievement Highlights - fixed to be in layout flow */}
+        {/* Achievement Highlights */}
         <div className="mt-16 flex flex-wrap justify-center gap-4 md:gap-6 animate-fadeIn delay-700 max-w-md mx-auto">
           <div className="bg-primary/10 backdrop-blur-sm border border-primary/20 rounded-lg px-3 py-2 text-center min-w-[100px]">
-            <div className="text-lg font-bold text-primary">3+</div>
+            <div className="text-lg font-bold text-primary">8.59</div>
             <div className="text-xs text-muted-foreground whitespace-nowrap">
-              Years Experience
+              CGPA
             </div>
           </div>
           <div className="bg-secondary/10 backdrop-blur-sm border border-secondary/20 rounded-lg px-3 py-2 text-center min-w-[100px]">
-            <div className="text-lg font-bold text-secondary">15+</div>
+            <div className="text-lg font-bold text-secondary">3</div>
             <div className="text-xs text-muted-foreground whitespace-nowrap">
               Projects Built
             </div>
           </div>
           <div className="bg-accent/10 backdrop-blur-sm border border-accent/20 rounded-lg px-3 py-2 text-center min-w-[100px]">
-            <div className="text-lg font-bold text-accent">ML</div>
+            <div className="text-lg font-bold text-accent">VLSI</div>
             <div className="text-xs text-muted-foreground whitespace-nowrap">
-              Research Focus
+              Design Focus
             </div>
           </div>
         </div>

@@ -24,38 +24,42 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
+    { name: 'Education', href: '#education' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Coursework', href: '#coursework' },
+    { name: 'Activities', href: '#activities' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   const handleDownloadResume = () => {
-    // Create a temporary link to download resume
     const link = document.createElement('a');
-    link.href = '/resume.pdf'; // Add your resume file to public folder
-    link.download = 'Animesh_Kumar_Biswas_Resume.pdf';
+    link.href = '/resume.pdf';
+    link.download = 'Asim_Dey_Resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 py-4 px-4 sm:px-6 lg:px-8 ${
-      isScrolled 
-        ? 'bg-background/95 backdrop-blur-md shadow-lg border-b border-border' 
-        : 'bg-transparent'
-    }`}>
+    <nav
+      className={`fixed w-full z-50 transition-all duration-300 py-4 px-4 sm:px-6 lg:px-8 ${
+        isScrolled 
+          ? 'bg-background/95 backdrop-blur-md shadow-lg border-b border-border' 
+          : 'bg-transparent'
+      }`}
+      aria-label="Main navigation"
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <a 
           href="#home" 
           className="text-xl font-bold gradient-text font-heading hover:scale-105 transition-transform duration-200"
         >
-          Animesh<span className="text-secondary">.dev</span>
+          Asim<span className="text-secondary">.dev</span>
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -87,12 +91,13 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Navigation Button */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="lg:hidden flex items-center gap-2">
           <ThemeToggle />
           <button 
             className="focus:outline-none transition-transform hover:scale-110" 
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -101,7 +106,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden absolute top-full inset-x-0 bg-background/95 backdrop-blur-md shadow-lg border-b border-border transition-all duration-300">
+        <div className="lg:hidden absolute top-full inset-x-0 bg-background/95 backdrop-blur-md shadow-lg border-b border-border transition-all duration-300">
           <div className="flex flex-col space-y-4 p-4">
             {navLinks.map((link) => (
               <a

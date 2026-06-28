@@ -1,5 +1,5 @@
 
-import { Code, Database, Server, Layers, Cpu, Globe } from 'lucide-react';
+import { Code, Cpu, Layers, Lightbulb, Users, Wrench } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 import SkillTree from './SkillTree';
@@ -9,50 +9,51 @@ const Skills = () => {
 
   const skillCategories = [
     {
-      title: "Languages",
+      title: "Programming",
       icon: <Code className="h-5 w-5" />,
-      skills: ["C", "C++", "Python", "JavaScript", "TypeScript", "MATLAB"]
+      skills: ["C", "Python"]
     },
     {
-      title: "Machine Learning",
+      title: "Hardware Description Languages",
       icon: <Cpu className="h-5 w-5" />,
-      skills: ["TensorFlow", "PyTorch", "OpenCV", "scikit-learn", "Hugging Face", "Vision Transformers", "NLP"]
+      skills: ["Verilog", "VHDL"]
     },
     {
-      title: "Web Development",
-      icon: <Globe className="h-5 w-5" />,
-      skills: ["HTML", "CSS", "React", "Flask", "FastAPI", "JavaScript", "Node.js"]
+      title: "EDA Tools",
+      icon: <Wrench className="h-5 w-5" />,
+      skills: ["MATLAB", "Proteus", "Multisim", "Arduino", "AutoCAD"]
     },
     {
-      title: "Databases",
-      icon: <Database className="h-5 w-5" />,
-      skills: ["MySQL", "PostgreSQL", "MongoDB", "Redis"]
-    },
-    {
-      title: "Developer Tools",
+      title: "VLSI Concepts",
       icon: <Layers className="h-5 w-5" />,
-      skills: ["Git", "GitHub", "VS Code", "Jupyter", "Docker", "Linux"]
+      skills: ["CMOS Logic Design", "Sequential Circuits", "Combinational Circuits", "FSM Design", "Timing Analysis", "Low Power Design"]
     },
     {
-      title: "Others",
-      icon: <Server className="h-5 w-5" />,
-      skills: ["RESTful APIs", "Data Analysis", "Time Series Analysis", "Computer Vision"]
+      title: "Areas of Interest",
+      icon: <Lightbulb className="h-5 w-5" />,
+      skills: ["VLSI Design", "ASIC Design", "FPGA Design", "Digital IC Design", "Semiconductor Technology"]
+    },
+    {
+      title: "Soft Skills",
+      icon: <Users className="h-5 w-5" />,
+      skills: ["Leadership", "Communication", "Teamwork", "Problem Solving"]
     }
   ];
 
   return (
-    <section id="skills" className="py-16 relative overflow-hidden">
+    <section id="skills" className="py-16 relative overflow-hidden" aria-labelledby="skills-heading">
       {/* Animated background */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent animate-pulse"></div>
       
       <div className="section-container relative z-10">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="section-title">Technical Skills</h2>
+          <h2 id="skills-heading" className="section-title">Technical Skills</h2>
           <div className="flex gap-2">
             <Button
               variant={viewMode === 'grid' ? 'default' : 'outline'}
               size="sm"
               onClick={() => setViewMode('grid')}
+              aria-pressed={viewMode === 'grid'}
             >
               Grid View
             </Button>
@@ -60,6 +61,7 @@ const Skills = () => {
               variant={viewMode === 'tree' ? 'default' : 'outline'}
               size="sm"
               onClick={() => setViewMode('tree')}
+              aria-pressed={viewMode === 'tree'}
             >
               Skill Tree
             </Button>

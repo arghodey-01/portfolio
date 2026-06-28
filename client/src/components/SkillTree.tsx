@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
-import { Code, Database, Server, Layers, Cpu, Globe, Brain } from 'lucide-react';
+import { Code, Server, Layers, Cpu, Globe, Brain } from 'lucide-react';
 
 interface SkillNode {
   id: string;
@@ -22,42 +22,37 @@ const SkillTree = () => {
   const animationFrame = useRef<number>();
 
   const initialNodes: SkillNode[] = useMemo(() => [
-    // Core Programming
-    { id: 'python', name: 'Python', level: 5, category: 'languages', x: 200, y: 100, icon: <Code className="h-4 w-4" />, connections: ['tensorflow', 'flask', 'opencv'], description: 'Advanced Python programming with 3+ years experience' },
-    { id: 'javascript', name: 'JavaScript', level: 4, category: 'languages', x: 400, y: 100, icon: <Code className="h-4 w-4" />, connections: ['react', 'nodejs'], description: 'Modern ES6+ JavaScript and TypeScript' },
-    { id: 'cpp', name: 'C++', level: 4, category: 'languages', x: 100, y: 180, icon: <Code className="h-4 w-4" />, connections: ['python'], description: 'Data structures and algorithms in C++' },
-    
-    // Machine Learning
-    { id: 'tensorflow', name: 'TensorFlow', level: 4, category: 'ml', x: 150, y: 250, icon: <Brain className="h-4 w-4" />, connections: ['pytorch', 'opencv'], description: 'Deep learning and neural networks' },
-    { id: 'pytorch', name: 'PyTorch', level: 4, category: 'ml', x: 300, y: 250, icon: <Brain className="h-4 w-4" />, connections: ['huggingface'], description: 'Research-focused deep learning framework' },
-    { id: 'opencv', name: 'OpenCV', level: 3, category: 'ml', x: 100, y: 320, icon: <Brain className="h-4 w-4" />, connections: ['tensorflow'], description: 'Computer vision and image processing' },
-    { id: 'huggingface', name: 'Hugging Face', level: 3, category: 'ml', x: 400, y: 320, icon: <Brain className="h-4 w-4" />, connections: ['pytorch'], description: 'NLP models and transformers' },
-    
-    // Web Development
-    { id: 'react', name: 'React', level: 4, category: 'web', x: 500, y: 180, icon: <Globe className="h-4 w-4" />, connections: ['javascript', 'typescript'], description: 'Modern React with hooks and TypeScript' },
-    { id: 'nodejs', name: 'Node.js', level: 3, category: 'web', x: 450, y: 250, icon: <Server className="h-4 w-4" />, connections: ['javascript'], description: 'Backend development with Node.js' },
-    { id: 'flask', name: 'Flask', level: 4, category: 'web', x: 250, y: 320, icon: <Server className="h-4 w-4" />, connections: ['python'], description: 'Python web framework for APIs' },
-    { id: 'typescript', name: 'TypeScript', level: 3, category: 'web', x: 550, y: 250, icon: <Code className="h-4 w-4" />, connections: ['react'], description: 'Type-safe JavaScript development' },
-    
-    // Databases
-    { id: 'mysql', name: 'MySQL', level: 3, category: 'database', x: 350, y: 400, icon: <Database className="h-4 w-4" />, connections: ['postgresql'], description: 'Relational database management' },
-    { id: 'postgresql', name: 'PostgreSQL', level: 3, category: 'database', x: 450, y: 400, icon: <Database className="h-4 w-4" />, connections: ['mysql'], description: 'Advanced SQL and database design' },
-    { id: 'mongodb', name: 'MongoDB', level: 2, category: 'database', x: 250, y: 400, icon: <Database className="h-4 w-4" />, connections: [], description: 'NoSQL document database' },
-    
-    // Tools
-    { id: 'git', name: 'Git', level: 4, category: 'tools', x: 150, y: 450, icon: <Layers className="h-4 w-4" />, connections: ['github'], description: 'Version control and collaboration' },
-    { id: 'github', name: 'GitHub', level: 4, category: 'tools', x: 250, y: 500, icon: <Layers className="h-4 w-4" />, connections: ['git'], description: 'Code hosting and CI/CD' },
-    { id: 'docker', name: 'Docker', level: 2, category: 'tools', x: 350, y: 500, icon: <Layers className="h-4 w-4" />, connections: [], description: 'Containerization and deployment' },
+    // Programming
+    { id: 'c', name: 'C', level: 4, category: 'languages', x: 150, y: 100, icon: <Code className="h-4 w-4" />, connections: ['verilog', 'python'], description: 'Systems programming and embedded development' },
+    { id: 'python', name: 'Python', level: 4, category: 'languages', x: 350, y: 100, icon: <Code className="h-4 w-4" />, connections: ['matlab', 'c'], description: 'Scripting and simulation workflows' },
+
+    // HDL
+    { id: 'verilog', name: 'Verilog', level: 4, category: 'hdl', x: 100, y: 220, icon: <Cpu className="h-4 w-4" />, connections: ['vhdl', 'fsm', 'modelsim'], description: 'RTL design and digital logic modeling' },
+    { id: 'vhdl', name: 'VHDL', level: 3, category: 'hdl', x: 280, y: 220, icon: <Cpu className="h-4 w-4" />, connections: ['verilog', 'fsm'], description: 'Hardware description for digital systems' },
+    { id: 'fsm', name: 'FSM Design', level: 4, category: 'hdl', x: 450, y: 220, icon: <Brain className="h-4 w-4" />, connections: ['verilog', 'cmos'], description: 'Mealy/Moore finite state machine design' },
+
+    // VLSI Concepts
+    { id: 'cmos', name: 'CMOS Logic', level: 4, category: 'vlsi', x: 150, y: 340, icon: <Brain className="h-4 w-4" />, connections: ['sequential', 'timing'], description: 'CMOS logic design and circuit fundamentals' },
+    { id: 'sequential', name: 'Sequential Circuits', level: 4, category: 'vlsi', x: 320, y: 340, icon: <Brain className="h-4 w-4" />, connections: ['combinational'], description: 'Flip-flops, counters, and register design' },
+    { id: 'combinational', name: 'Combinational Circuits', level: 3, category: 'vlsi', x: 480, y: 340, icon: <Brain className="h-4 w-4" />, connections: ['sequential'], description: 'Logic gates and multiplexer design' },
+    { id: 'timing', name: 'Timing Analysis', level: 3, category: 'vlsi', x: 250, y: 420, icon: <Brain className="h-4 w-4" />, connections: ['lowpower'], description: 'Setup, hold, and propagation delay analysis' },
+    { id: 'lowpower', name: 'Low Power Design', level: 3, category: 'vlsi', x: 400, y: 420, icon: <Brain className="h-4 w-4" />, connections: [], description: 'Power-aware digital design techniques' },
+
+    // EDA Tools
+    { id: 'matlab', name: 'MATLAB', level: 3, category: 'eda', x: 500, y: 100, icon: <Layers className="h-4 w-4" />, connections: ['python'], description: 'Signal analysis and simulation' },
+    { id: 'proteus', name: 'Proteus', level: 4, category: 'eda', x: 100, y: 500, icon: <Layers className="h-4 w-4" />, connections: ['multisim', 'logisim'], description: 'Circuit simulation and PCB design' },
+    { id: 'multisim', name: 'Multisim', level: 3, category: 'eda', x: 250, y: 500, icon: <Layers className="h-4 w-4" />, connections: ['proteus'], description: 'Analog and digital circuit simulation' },
+    { id: 'logisim', name: 'Logisim', level: 3, category: 'eda', x: 400, y: 500, icon: <Globe className="h-4 w-4" />, connections: ['proteus'], description: 'Digital logic simulation and verification' },
+    { id: 'modelsim', name: 'ModelSim', level: 3, category: 'eda', x: 550, y: 280, icon: <Server className="h-4 w-4" />, connections: ['verilog'], description: 'HDL simulation and waveform analysis' },
   ], []);
 
   const [nodes, setNodes] = useState(initialNodes);
 
   const categoryColors = {
     languages: '#3B82F6',
-    ml: '#8B5CF6',
-    web: '#10B981',
-    database: '#F59E0B',
-    tools: '#EF4444'
+    hdl: '#8B5CF6',
+    vlsi: '#10B981',
+    eda: '#F59E0B',
   };
 
   const getNodeRadius = useCallback((level: number) => 15 + (level * 3), []);
